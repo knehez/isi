@@ -1,4 +1,3 @@
-# isi
-Information Systems Integration
+# Information Systems Integration
 
-simple docker-compose example of two containers
+Simple docker-compose.yml example of two containers (FLASK + REDIS)
