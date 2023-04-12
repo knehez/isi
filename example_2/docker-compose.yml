@@ -1,14 +1,16 @@
 version: "3.3"
 services:
+  web:
+    build: .
+    ports:
+      - "5000"
+  redis:
+    image: "redis:alpine"
   haproxy:
     image: "haproxytech/haproxy-alpine:2.4"
     volumes:
         - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
-    depends:
+    depends_on:
         - web
-  web:
-    build: .
     ports:
-      - "5000-5004:5000"
-  redis:
-    image: "redis:alpine"
+      - "80:80"
