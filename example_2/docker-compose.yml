@@ -4,6 +4,8 @@ services:
     image: "haproxytech/haproxy-alpine:2.4"
     volumes:
         - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
+    depends:
+        - web
   web:
     build: .
     ports:
