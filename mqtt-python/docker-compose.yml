@@ -3,6 +3,10 @@ services:
   mqtt:
     image: toke/mosquitto
     restart: unless-stopped
+    volumes:
+      - ./conf:/mosquitto/conf
+      - ./data:/mosquitto/data
+      - ./log:/mosquitto/log
 
   consumer:
     build: 
