@@ -1,6 +1,6 @@
 version: '3.7'
 services:
-  mqtt-server:
+  mqtt:
     image: toke/mosquitto
     restart: unless-stopped
 
@@ -11,7 +11,7 @@ services:
     volumes:
         - .:/app      
     depends_on:
-      - rabbitmq
+      - mqtt
 
   producer:
     build: 
@@ -20,7 +20,8 @@ services:
     volumes:
         - .:/app      
     depends_on:
-      - rabbitmq
+      - mqtt
+      
       
       
   
