@@ -1,15 +1,15 @@
 version: '3.7'
 services:
-  rabbitmq:
-    image: 'rabbitmq'
-    ports:
-        - 5672:5672
-        - 15672:15672
+  mqtt-server:
+    image: toke/mosquitto
+    restart: unless-stopped
 
   consumer:
     build: 
       context: .
       dockerfile: Dockerfile-consumer
+    volumes:
+        - .:/app      
     depends_on:
       - rabbitmq
 
@@ -17,6 +17,8 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile-producer
+    volumes:
+        - .:/app      
     depends_on:
       - rabbitmq
       
