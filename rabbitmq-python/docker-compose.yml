@@ -1,0 +1,31 @@
+version: '3.7'
+services:
+  rabbitmq:
+    image: 'rabbitmq'
+    ports:
+        - 5672:5672
+        - 15672:15672
+
+  consumer:
+    build: 
+      context: .
+      dockerfile: Dockerfile-consumer
+    volumes:
+        - .:/app      
+    depends_on:
+      - rabbitmq
+
+  producer:
+    build: 
+      context: .
+      dockerfile: Dockerfile-producer
+    volumes:
+        - .:/app      
+    depends_on:
+      - rabbitmq
+      
+      
+      
+  
+
+
