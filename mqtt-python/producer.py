@@ -22,6 +22,6 @@ for i in range(20):
     time.sleep(d)
 
     # publish message
-    ret = client.publish("/data", message, 2)
+    ret = client.publish("/data", message)
 
 print("Stopped...")
