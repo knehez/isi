@@ -2,9 +2,9 @@ package org.ait;
 import java.rmi.*;
 
 public interface RObject extends Remote {
-  // egyszerű paraméterátadás
+  // simple parameter passing
   void primitiveArg(int num) throws RemoteException;
   
-  // érték szerinti paraméterátadás
+  // parameter pass by value
   void argumentByValue(Integer num) throws RemoteException;
 }
